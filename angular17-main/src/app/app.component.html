@@ -1,25 +1,30 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg menu">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/home">CINEMACON</a>
+    <a href="/home" class="mx-2"><img class="logo" src="./assets/Logo_simple.png" alt=""></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-2">
         <li class="nav-item">
-          <a class="nav-link" href="watchlist">Películas</a>
+          <a class="nav-link" href="lista/servicios">Servicios</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="w-real">Watchlist</a>
-        </li>
+        
         <li class="nav-item">
           <a class="nav-link" href="registro">Registro</a>
+        </li>
+        <li *ngIf="!tieneToken()" class="nav-item m-1 mx-2">
+          <a class="nav-link btn btn-outline-primary" routerLink="/login">Login</a>
+        </li>
+        <li *ngIf="tieneToken()" class="nav-item m-1 d-flex align-items-center mx-2">
+          <p class="m-0 me-2"> ¡Hola! , {{NombreUsuario}}</p>
+          <button class="btn btn-outline-primary" (click)="logout()">Desconectar</button>
         </li>
         
       </ul>
 
-      <div class="d-flex">
+      <div class="d-flex mx-2">
         <form class="d-flex" (submit)="buscar()">
           <input class="form-control" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="peliculaId" name="searchTerm">
           <button class="btn btn-outline-success" type="submit">Buscar</button>
@@ -31,9 +36,10 @@
   </div>
 </nav>
 
+
 <div class="container">
-  <h1 class="display-2 text-center my-4">CINEMACON</h1>
-  <h1 class="display-8 text-center my-4">EL MEJOR PORTAL DE CINE DE TODOS LOS TIEMPOS</h1>
+  <h1 class="display-2 text-center my-4">XPO marketing</h1>
+  <h1 class="display-8 text-center my-4">AGENCIA DE MARKETING DIGITAL</h1>
 </div>
 
 <router-outlet></router-outlet>

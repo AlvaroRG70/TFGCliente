@@ -7,6 +7,9 @@ import { FilmComponent } from './film/film.component';
 import { BuscadorComponent } from './buscador/buscador.component'; 
 import {RegistroComponent } from './registro/registro.component';
 import {WatchlistRealComponent } from './watchlist-real/watchlist-real.component';
+import { LoginComponent } from './login/login.component';
+import { ListaServiciosComponent } from './lista-servicios/lista-servicios.component';
+
 
 
 
@@ -19,7 +22,10 @@ const routes: Routes = [
   { path: 'film/:id', component: FilmComponent },
   { path: 'buscador', component: BuscadorComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'w-real', component: WatchlistRealComponent },
+  { path: 'lista/servicios', component: ListaServiciosComponent },
+
 
 
 

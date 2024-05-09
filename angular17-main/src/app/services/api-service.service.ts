@@ -15,16 +15,16 @@ export class ApiServiceService {
 
   private getHeaders(): HttpHeaders {
     const token = this.tokenService.getToken();
+    const token2 = 'fX66pbJrNfpEXNvdEw30encqBkVt12'
+
     return new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
-      
+      'Authorization': `Bearer ${token}`
     });
   }
 
-
   getServicios(): Observable<any> {
     const headers = this.getHeaders();
-    return this.http.get<any>(`${this.apiUrl}servicios`, { headers })
+    return this.http.get<any>(`${this.apiUrl}`+`servicios`, { headers })
       .pipe(
         catchError(error => {
           throw error;
@@ -32,6 +32,4 @@ export class ApiServiceService {
       );
   }
   
-
-
 }

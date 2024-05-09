@@ -14,6 +14,8 @@ import { FilmComponent } from './film/film.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { RegistroComponent } from './registro/registro.component';
 import { WatchlistRealComponent } from './watchlist-real/watchlist-real.component';
+import { LoginComponent } from './login/login.component';
+import { ListaServiciosComponent } from './lista-servicios/lista-servicios.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { WatchlistRealComponent } from './watchlist-real/watchlist-real.componen
 
     BuscadorComponent,
     RegistroComponent,
-    WatchlistRealComponent
+    WatchlistRealComponent,
+    LoginComponent,
+    ListaServiciosComponent
   ],
   imports: [
     BrowserModule,
