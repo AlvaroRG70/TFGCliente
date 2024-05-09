@@ -22,24 +22,51 @@ export class AppComponent {
   }
 
 
-
-  ngDoCheck(): void {
-    this.getUserLogged();
+  //-------------------
+  ngOnInit(): void {
+    this.getNombreUsuarioFromSessionStorage();
+    this.getTokenFromSessionStorage();
   }
 
-  tieneToken() {
-    return this.tokenService.getToken();
+  getTokenFromSessionStorage(): void {
+    this.eltoken = sessionStorage.getItem('token') || '';
   }
 
-  logout() {
-    this.tokenService.logout();
+  getNombreUsuarioFromSessionStorage(): void {
+    this.NombreUsuario = sessionStorage.getItem('nombreUsuario') || '';
   }
 
-  getUserLogged() {
-    if (this.tokenService.getToken()){
-      this.tokenService.getUserLogged().subscribe((user) => {
-        this.NombreUsuario = user.username
-      });
-    }
+  logout(): void {
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('username');
+    this.NombreUsuario = '';
+    this.eltoken = '';
+    sessionStorage.clear();
+    this.router.navigate(['login']);
   }
+
+  tieneToken(): boolean {
+    return !!sessionStorage.getItem('token');
+  }
+
+//-------------------------
+  // ngDoCheck(): void {
+  //   this.getUserLogged();
+  // }
+
+  // tieneToken() {
+  //   return this.tokenService.getToken();
+  // }
+
+  // logout() {
+  //   this.tokenService.logout();
+  // }
+
+  // getUserLogged() {
+  //   if (this.tokenService.getToken()){
+  //     this.tokenService.getUserLogged().subscribe((user) => {
+  //       this.NombreUsuario = user.username
+  //     });
+  //   }
+  // }
 }

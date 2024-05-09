@@ -18,16 +18,37 @@ export class LoginComponent {
     private tokenService: TokenService
   ) { }
 
+//------------------
   loginFormulario() {
 
-    const user = {usuario:this.nombre,pass:this.password}
+    const user = {usuario:this.nombre,pass:this.password};
     this.loginService.loginUsuario(user).subscribe((data)=>{
-      this.tokenService.setToken(data.access_token);
+      // Almacena el token en sessionStorage
+      sessionStorage.setItem('token', data.access_token);
+      // Almacena el nombre de usuario en sessionStorage
+      sessionStorage.setItem('nombreUsuario', this.nombre);
       this.router.navigate(['/']);
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
     },error => {
       this.errorMensaje = "Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.";
     });
 
   }
+//--------------
+
+
+  // loginFormulario() {
+
+  //   const user = {usuario:this.nombre,pass:this.password}
+  //   this.loginService.loginUsuario(user).subscribe((data)=>{
+  //     this.tokenService.setToken(data.access_token);
+  //     this.router.navigate(['/']);
+  //   },error => {
+  //     this.errorMensaje = "Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.";
+  //   });
+
+  // }
 
 }

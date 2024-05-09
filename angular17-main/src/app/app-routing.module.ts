@@ -9,10 +9,8 @@ import {RegistroComponent } from './registro/registro.component';
 import {WatchlistRealComponent } from './watchlist-real/watchlist-real.component';
 import { LoginComponent } from './login/login.component';
 import { ListaServiciosComponent } from './lista-servicios/lista-servicios.component';
-
-
-
-
+import { CrearServicioComponent } from './crear-servicio/crear-servicio.component';
+import { ServicioComponent } from './servicio/servicio.component';
 
 
 const routes: Routes = [
@@ -25,6 +23,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'w-real', component: WatchlistRealComponent },
   { path: 'lista/servicios', component: ListaServiciosComponent },
+  { path: 'crear/servicios', component: CrearServicioComponent },
+  { path: 'servicio/:id', component: ServicioComponent },
+
+
 
 
 

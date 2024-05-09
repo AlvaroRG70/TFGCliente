@@ -28,7 +28,7 @@ export class RegistroComponent{
       email: this.email,
       password1: this.contrasenia1,
       password2: this.contrasenia2,
-      rol: 1,
+      rol: 2,
     };
     this.registroService.registrar(dataSignUp)
       .subscribe(

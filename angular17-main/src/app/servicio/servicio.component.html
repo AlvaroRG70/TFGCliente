@@ -1,0 +1,26 @@
+
+
+
+  <div class="row" >
+    <div class="col-md-12">
+      <div class="row mb-3 border-top border-bottom mt-5 ">
+        <div class="col-md-4 mb-3">
+
+          <img src='' alt="Imagen"
+            class="img-fluid">
+        </div>
+        <div class="col-md-8">
+
+        <h3 class="display-1 my-4">{{ servicio.nombre }}</h3>
+        <p>descripcion: {{ servicio.descripcion }}</p>
+
+        <p>Precio: {{ servicio.precio }}</p>
+
+        <a href="#" class="btn btn-secondary m-2">Editar</a>
+        <a href="#" class="btn btn-danger m-2" (click)="eliminarProducto(servicio.id)">Eliminar</a>
+        <a href="lista/servicios" class="btn btn-primary bg-dark m-2">Volver</a>
+
+
+        </div>
+      </div>
+    </div>

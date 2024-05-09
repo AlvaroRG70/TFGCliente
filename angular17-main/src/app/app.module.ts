@@ -16,6 +16,8 @@ import { RegistroComponent } from './registro/registro.component';
 import { WatchlistRealComponent } from './watchlist-real/watchlist-real.component';
 import { LoginComponent } from './login/login.component';
 import { ListaServiciosComponent } from './lista-servicios/lista-servicios.component';
+import { CrearServicioComponent } from './crear-servicio/crear-servicio.component';
+import { ServicioComponent } from './servicio/servicio.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ListaServiciosComponent } from './lista-servicios/lista-servicios.compo
     RegistroComponent,
     WatchlistRealComponent,
     LoginComponent,
-    ListaServiciosComponent
+    ListaServiciosComponent,
+    CrearServicioComponent,
+    ServicioComponent
   ],
   imports: [
     BrowserModule,
