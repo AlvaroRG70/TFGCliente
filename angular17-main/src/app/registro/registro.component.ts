@@ -39,6 +39,5 @@ export class RegistroComponent{
           console.log(error);
         }
       );
-
   }
 }

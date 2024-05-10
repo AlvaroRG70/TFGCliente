@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiServiceService } from '../services/api-service.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-crear-servicio',
@@ -17,7 +18,7 @@ export class CrearServicioComponent {
   descripcion: string=""
   precio: string=""
 
-  constructor(private http: HttpClient, private createService: ApiServiceService, private router: Router) { } 
+  constructor(private http: HttpClient, private createService: ApiServiceService, private router: Router,private toastr: ToastrService) { } 
 
 
   registroCreate() {
@@ -30,6 +31,8 @@ export class CrearServicioComponent {
       .subscribe(
         response => {
           this.router.navigate(['lista/servicios']);
+          this.toastr.success('El servicio se ha creado correctamente', 'Éxito');
+
         },
         error => {
           console.log(error);

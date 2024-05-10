@@ -18,6 +18,8 @@ import { LoginComponent } from './login/login.component';
 import { ListaServiciosComponent } from './lista-servicios/lista-servicios.component';
 import { CrearServicioComponent } from './crear-servicio/crear-servicio.component';
 import { ServicioComponent } from './servicio/servicio.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { ServicioComponent } from './servicio/servicio.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule, // requerido para ToastrModule
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
