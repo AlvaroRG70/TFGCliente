@@ -33,7 +33,7 @@ export class RegistroComponent{
     this.registroService.registrar(dataSignUp)
       .subscribe(
         response => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/login']);
         },
         error => {
           console.log(error);

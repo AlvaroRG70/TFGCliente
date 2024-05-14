@@ -10,7 +10,7 @@
           <li *ngIf="tieneToken()" class="nav-item">
             <a class="nav-link" href="lista/servicios">Servicios</a>
           </li>
-          <li *ngIf="tieneToken()" class="nav-item">
+          <li *ngIf="tieneToken() && usuario.rol ===1" class="nav-item">
             <a class="nav-link" href="crear/servicios">Crear Servicios</a>
           </li>
         </ul>
@@ -18,7 +18,7 @@
         <div class="d-flex mx-2 mr-auto"> <!-- Alineación a la izquierda -->
           <form *ngIf="tieneToken()" class="d-flex" (submit)="buscar()">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="peliculaId" name="searchTerm">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>
+            <button class="btn btn-outline-success" type="submit" disabled>Buscar</button>
           </form>
         </div>
      

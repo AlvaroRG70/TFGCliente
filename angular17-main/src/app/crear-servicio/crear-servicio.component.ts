@@ -21,7 +21,7 @@ export class CrearServicioComponent {
   constructor(private http: HttpClient, private createService: ApiServiceService, private router: Router,private toastr: ToastrService) { } 
 
 
-  registroCreate() {
+  servicioCreate() {
     const dataSignUp = {
       nombre: this.nombre,
       descripcion: this.descripcion,

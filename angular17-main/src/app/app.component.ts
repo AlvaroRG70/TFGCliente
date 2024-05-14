@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { PeliculasService } from './services/peliculas.service'; 
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TokenService } from './services/token.service';
+import { ApiServiceService } from './services/api-service.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,10 @@ export class AppComponent {
   peliculaId: string = '';
   NombreUsuario:string = '';
   eltoken:string = '';
-  constructor(private router: Router,private PeliculasService: PeliculasService, private tokenService: TokenService,) { }
+
+  nombreUser: string="";
+  usuario: any
+  constructor(private router: Router,private PeliculasService: PeliculasService, private tokenService: TokenService, private ApiServiceService: ApiServiceService, private route: ActivatedRoute) { }
 
 
   buscar() {
@@ -26,6 +30,9 @@ export class AppComponent {
   ngOnInit(): void {
     this.getNombreUsuarioFromSessionStorage();
     this.getTokenFromSessionStorage();
+
+    this.nombreUser = sessionStorage.getItem('nombreUsuario') || '';
+    this.obtenerUsuario(this.nombreUser)
   }
 
   getTokenFromSessionStorage(): void {
@@ -47,6 +54,16 @@ export class AppComponent {
 
   tieneToken(): boolean {
     return !!sessionStorage.getItem('token');
+  }
+
+  obtenerUsuario(Usuario: string){
+
+    this.route.params.subscribe(params => {
+      this.ApiServiceService.getusuario(Usuario).subscribe((data: any) => {
+        console.log(data)
+        return this.usuario = data;
+      });
+    });
   }
 
 //-------------------------

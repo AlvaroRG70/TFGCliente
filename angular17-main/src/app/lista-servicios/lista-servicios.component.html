@@ -1,5 +1,6 @@
-
+<h1>Lista Servicio</h1>
   <div class="container mt-5">
+
     <div class="row">
       <div class="col-lg-4 mb-4" *ngFor="let servicio of servicios; let i = index">
         <div class="card ">
@@ -9,12 +10,13 @@
             <p class="card-text">{{ servicio.descripcion }}</p>
             <p class="card-text">Precio: {{ servicio.precio }}</p>
             <a href="servicio/{{servicio.id}}" class="btn btn-primary">Ver más</a>
+            {{servicio.imagen}}
+            <img [src]="'http://127.0.0.1:8000/api/v1/' + servicio.imagen" alt="">
           </div>
         </div>
-        <div *ngFor="let servicio of servicios; let i = index">
-
-        </div>
+        
       </div>  
     </div>
   </div>
 
+  

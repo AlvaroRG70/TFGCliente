@@ -11,6 +11,11 @@ import { LoginComponent } from './login/login.component';
 import { ListaServiciosComponent } from './lista-servicios/lista-servicios.component';
 import { CrearServicioComponent } from './crear-servicio/crear-servicio.component';
 import { ServicioComponent } from './servicio/servicio.component';
+import { EditarServicioComponent } from './editar-servicio/editar-servicio.component';
+import { EditarReseniaComponent } from './editar-resenia/editar-resenia.component';
+
+
+
 
 
 const routes: Routes = [
@@ -25,6 +30,10 @@ const routes: Routes = [
   { path: 'lista/servicios', component: ListaServiciosComponent },
   { path: 'crear/servicios', component: CrearServicioComponent },
   { path: 'servicio/:id', component: ServicioComponent },
+  { path: 'editar/servicio/:id_servicio', component: EditarServicioComponent },
+  { path: 'editar/resenia/:id_resenia', component: EditarReseniaComponent },
+
+
 
 
 

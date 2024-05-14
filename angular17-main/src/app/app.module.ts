@@ -21,6 +21,10 @@ import { ServicioComponent } from './servicio/servicio.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
+import { ReseniasCreateComponent } from './resenias-create/resenias-create.component';
+import { EditarServicioComponent } from './editar-servicio/editar-servicio.component';
+import { EditarReseniaComponent } from './editar-resenia/editar-resenia.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +39,10 @@ import { ToastrModule } from 'ngx-toastr';
     LoginComponent,
     ListaServiciosComponent,
     CrearServicioComponent,
-    ServicioComponent
+    ServicioComponent,
+    ReseniasCreateComponent,
+    EditarServicioComponent,
+    EditarReseniaComponent
   ],
   imports: [
     BrowserModule,

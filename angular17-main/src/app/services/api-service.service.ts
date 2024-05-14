@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenService } from './token.service';
-import { Observable } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -79,6 +79,75 @@ export class ApiServiceService {
           throw error;
         })
       );
+  }
+
+  getusuario(nombreUsuario: string){
+    const headers = this.getHeaders();
+    return this.http.get<any>(`${this.apiUrl}usuario/obtener/${nombreUsuario}`, { headers })
+      .pipe(
+        catchError(error => {
+          throw error;
+        })
+      );
+  }
+
+  createResenias(dataSignUp: any, idUsuario: number, idServicio: number): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http.post<any>(`${this.apiUrl}`+`resenias/create/${idUsuario}/${idServicio}`, dataSignUp, { headers })
+      .pipe(
+        catchError(error => {
+          throw error;
+        })
+      );
+  }
+
+  deleteResenias(resenia_id: number){
+    const headers = this.getHeaders();
+    return this.http.delete<any>(`${this.apiUrl}resenia/eliminar/${resenia_id}`, { headers })
+      .pipe(
+        catchError(error => {
+          throw error;
+        })
+      );
+  }
+
+  // editarServicios(dataSignUp: any, idServicio: number): Observable<any> {
+  //   const headers = this.getHeaders();
+  //   return this.http.post<any>(`${this.apiUrl}`+`servicios/editar/${idServicio}`, dataSignUp, { headers })
+  //     .pipe(
+  //       catchError(error => {
+  //         throw error;
+  //       })
+  //     );
+  // }
+
+  getId(idServicio: string){
+    const headers = this.getHeaders();
+    return firstValueFrom(
+      this.http.get<any>(`${this.apiUrl}servicios/${idServicio}`, { headers })
+    )
+  }
+
+  getIdResenia(idResenia: string){
+    const headers = this.getHeaders();
+    return firstValueFrom(
+      this.http.get<any>(`${this.apiUrl}resenias/${idResenia}`, { headers })
+    )
+  }
+
+  editarServicios(idServicio: string, formValues: any) {
+    const headers = this.getHeaders();
+    return firstValueFrom(
+      this.http.put(`${this.apiUrl}`+`servicios/editar/${idServicio}`, formValues, { headers })
+    )
+
+  }
+
+  editarResenias(idResenia: string, formValues: any) {
+    const headers = this.getHeaders();
+    return firstValueFrom(
+      this.http.put(`${this.apiUrl}`+`resenia/editar/${idResenia}`, formValues, { headers })
+    )
   }
 
 

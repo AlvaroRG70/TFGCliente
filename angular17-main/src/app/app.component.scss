@@ -7,3 +7,19 @@
 .menu {
     background-color: #c8c8c8; /* Gris claro */
 }
+
+.accordion-header:after {
+  content: "🔻";
+
+}
+
+.accordion-header {
+  position: relative;
+  cursor: pointer;
+  background-color: rgb(214, 214, 214);
+}
+
+.accordion-header[aria-expanded="true"]:after {
+  content: "🔺";
+
+}
