@@ -97,13 +97,13 @@ export class ServicioComponent implements OnInit{
       );
   }
 
-  eliminarResenia(id: number): void {
+  eliminarResenia(id: string): void {
     const confirmacion = confirm('¿Estás seguro de que deseas eliminar esta reseña?');
     if (confirmacion) {
       this.ApiServiceService.deleteResenias(id).subscribe(
         response => {
-          this.router.navigate(['lista/servicios'])
           alert('Reseña eliminado correctamente');
+          window.location.reload();
         },
         error => {
           console.error('Error al eliminar el producto:', error);
@@ -112,6 +112,20 @@ export class ServicioComponent implements OnInit{
       );
     }
   }
+
+  agregarCarrito(id: string): void {
+    this.ApiServiceService.aniadirCarrito(id).subscribe(
+      response => {
+        alert('Servicio añadido correctamente');
+        window.location.reload();
+      },
+      error => {
+        console.error('Error al añadir el producto:', error);
+        // Manejar el error de eliminación
+      }
+    );
+  }
+
 
 
 }

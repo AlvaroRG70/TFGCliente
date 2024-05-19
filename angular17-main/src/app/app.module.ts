@@ -24,6 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ReseniasCreateComponent } from './resenias-create/resenias-create.component';
 import { EditarServicioComponent } from './editar-servicio/editar-servicio.component';
 import { EditarReseniaComponent } from './editar-resenia/editar-resenia.component';
+import { CarritoComponent } from './carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { EditarReseniaComponent } from './editar-resenia/editar-resenia.componen
     ServicioComponent,
     ReseniasCreateComponent,
     EditarServicioComponent,
-    EditarReseniaComponent
+    EditarReseniaComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,

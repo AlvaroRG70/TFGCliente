@@ -21,6 +21,7 @@
 
             <a *ngIf="usuario.rol===1" class="btn btn-secondary m-2" href="editar/servicio/{{servicio.id}}">Editar</a>
             <a *ngIf="usuario.rol===1" href="#" class="btn btn-danger m-2" (click)="eliminarProducto(servicio.id)">Eliminar</a>
+            <a class="btn btn-secondary m-2" (click)="agregarCarrito(servicio.id)">Añadir al carrito</a>
             <a href="lista/servicios" class="btn btn-primary bg-dark m-2">Volver</a>
             <button class="btn btn-secondary m-2" (click)="toggleFormulario()">Crear Comentario</button>
             
@@ -72,7 +73,9 @@
                   <p>Puntuacion: {{ resenia.puntuacion }}</p>
                   <div *ngIf="resenia.usuario.username === obtenerUsername()">
                     <a class="btn btn-secondary m-2" href="editar/resenia/{{resenia.id}}">Editar</a>
-                    <a href="#" class="btn btn-danger m-2" (click)="eliminarResenia(resenia.id)">Eliminar</a>
+                    <a class="btn btn-danger m-2" (click)="eliminarResenia(resenia.id)">Eliminar</a>
+                    
+
                   </div>
                   
                   

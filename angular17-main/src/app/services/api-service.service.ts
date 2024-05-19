@@ -101,7 +101,7 @@ export class ApiServiceService {
       );
   }
 
-  deleteResenias(resenia_id: number){
+  deleteResenias(resenia_id: string){
     const headers = this.getHeaders();
     return this.http.delete<any>(`${this.apiUrl}resenia/eliminar/${resenia_id}`, { headers })
       .pipe(
@@ -148,6 +148,48 @@ export class ApiServiceService {
     return firstValueFrom(
       this.http.put(`${this.apiUrl}`+`resenia/editar/${idResenia}`, formValues, { headers })
     )
+  }
+
+
+  // aniadirCarrito(idServicio: string){
+  //   const headers = this.getHeaders();
+  //   return this.http.post<any>(`${this.apiUrl}`+`servicios/aniadir_carrito/${idServicio}`,{}, { headers })
+  //     .pipe(
+  //       catchError(error => {
+  //         throw error;
+  //       })
+  //     );
+  // }
+
+  aniadirCarrito(idServicio: string): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http.post<any>(`${this.apiUrl}`+`servicios/aniadir_carrito/${idServicio}`, {}, { headers })
+      .pipe(
+        catchError(error => {
+          throw error;
+        })
+      );
+  }
+
+
+  getCarrito(): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http.get<any>(`${this.apiUrl}`+`servicios/ver_carrito`, { headers })
+      .pipe(
+        catchError(error => {
+          throw error;
+        })
+      );
+  }
+
+  deleteServicioCarrito(idServicio: string){
+    const headers = this.getHeaders();
+    return this.http.delete<any>(`${this.apiUrl}servicios/eliminar_carrito/${idServicio}`, { headers })
+      .pipe(
+        catchError(error => {
+          throw error;
+        })
+      );
   }
 
 
