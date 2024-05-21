@@ -7,7 +7,7 @@
 
         <div class="col-md-2 d-flex align-items-center justify-content-end">
           <div class="rounded overflow-hidden border border-dark">
-            <img src="https://via.placeholder.com/300" class="img-fluid rounded-start" alt="Imagen del servicio">
+            <img [src]="servicio.imagen ? 'http://127.0.0.1:8000/' + servicio.imagen : 'https://via.placeholder.com/300'" class="card-img-top" alt="Imagen del servicio">
           </div>
         </div>
 

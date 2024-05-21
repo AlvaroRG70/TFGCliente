@@ -193,4 +193,15 @@ export class ApiServiceService {
   }
 
 
+  realizarPago(pagoData: any): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http.post<any>(`${this.apiUrl}servicios/pagar/`, pagoData, { headers })
+      .pipe(
+        catchError(error => {
+          throw error;
+        })
+      );
+  }
+
+
 }
