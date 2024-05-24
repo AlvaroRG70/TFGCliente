@@ -11,6 +11,7 @@ import { ApiServiceService } from '../services/api-service.service';
 })
 export class ListaServiciosComponent {
   servicios: any[] = [];
+  loading: boolean = true;
   
   constructor(private http: HttpClient, private ApiServiceService: ApiServiceService) { } 
 
@@ -20,10 +21,15 @@ export class ListaServiciosComponent {
 
   listaServicios(): void {
     this.ApiServiceService.getServicios().subscribe((data: any) => {
+      
       this.servicios = data;
       console.log(this.servicios)
+      this.loading = false
+      
     });
   }
+
+
 }
   
   

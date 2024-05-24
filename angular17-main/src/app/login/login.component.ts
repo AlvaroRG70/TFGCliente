@@ -33,11 +33,6 @@ export class LoginComponent {
       sessionStorage.setItem('token', data.access_token);
       // Almacena el nombre de usuario en sessionStorage
       sessionStorage.setItem('nombreUsuario', this.nombre);
-
-
-
-
-
       this.router.navigate(['/']);
       setTimeout(() => {
         window.location.reload();
@@ -45,8 +40,7 @@ export class LoginComponent {
     },error => {
       this.errorMensaje = "Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.";
     });
-
-  }
+}
 //--------------
 
 

@@ -10,6 +10,7 @@ import { catchError } from 'rxjs/operators';
 export class ApiServiceService {
 
   private apiUrl = 'http://127.0.0.1:8000/api/v1/';
+  idPedido = "";
 
   constructor(private http: HttpClient, private tokenService: TokenService) { }
   getTokenFromSessionStorage(): string {
@@ -193,15 +194,46 @@ export class ApiServiceService {
   }
 
 
-  realizarPago(pagoData: any): Observable<any> {
+  postPago(): Observable<any> {
+    const idPedido = this.idPedido
     const headers = this.getHeaders();
-    return this.http.post<any>(`${this.apiUrl}servicios/pagar/`, pagoData, { headers })
+    return this.http.post<any>(`${this.apiUrl}servicios/pagar/${idPedido}`, {}, { headers })
       .pipe(
         catchError(error => {
           throw error;
         })
       );
   }
+
+  getPago(){
+    const idPedido = this.idPedido
+    const headers = this.getHeaders();
+    return this.http.get<any>(`${this.apiUrl}obtener/pago/${idPedido}`, { headers })
+      .pipe(
+        catchError(error => {
+          throw error;
+        })
+      );
+  }
+
+  getPagoBueno(idPedido: string){
+    const headers = this.getHeaders();
+    return firstValueFrom(
+      this.http.get<any>(`${this.apiUrl}obtener/pago/${idPedido}`, { headers })
+    )
+  } 
+
+  enviarCorreo(data: any): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http.post<any>(`http://127.0.0.1:8000/api/v1/send-email`, data, { headers })
+      .pipe(
+        catchError(error => {
+          throw error;
+        })
+      );
+  }
+
+
 
 
 }

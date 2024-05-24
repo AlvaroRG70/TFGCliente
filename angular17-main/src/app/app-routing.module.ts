@@ -14,6 +14,8 @@ import { ServicioComponent } from './servicio/servicio.component';
 import { EditarServicioComponent } from './editar-servicio/editar-servicio.component';
 import { EditarReseniaComponent } from './editar-resenia/editar-resenia.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { PagoComponent } from './pago/pago.component';
+
 
 
 
@@ -35,6 +37,8 @@ const routes: Routes = [
   { path: 'editar/servicio/:id_servicio', component: EditarServicioComponent },
   { path: 'editar/resenia/:id_resenia', component: EditarReseniaComponent },
   { path: 'carrito', component: CarritoComponent },
+  { path: 'pago/:id_pedido', component: PagoComponent },
+
 
 
 

@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <h1>Carrito</h1>
-
+    {{pedido.id}}
     <div class="card mb-3" *ngFor="let servicio of servicios">
       <div class="row g-0">
 
@@ -26,7 +26,8 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <h3>Total Carrito: {{ totalCarrito }}€</h3>
+      <h3>Total Carrito: {{ pedido.total }}€</h3>  
+      <a class="btn btn-danger m-2" (click)="pagarPedido(pedido.id)">Realizar Pago</a>
     </div>
   </div>
 </div>

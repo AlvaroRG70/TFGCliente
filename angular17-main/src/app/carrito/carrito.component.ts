@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CarritoComponent {
 
+  pedido: any
   servicios: any[] = [];
   totalCarrito: number = 0;
 
@@ -23,6 +24,7 @@ export class CarritoComponent {
   carritoCompra(): void {
     this.ApiServiceService.getCarrito().subscribe((data: any) => {
       console.log(data)
+      this.pedido = data
       this.servicios = data.detalles_carrito;
       this.totalCarrito = data.total_carrito;
       console.log(this.servicios)
@@ -44,6 +46,21 @@ export class CarritoComponent {
         }
       );
     }
+  }
+
+  pagarPedido(idPedido: string): void {
+    this.ApiServiceService.idPedido = idPedido
+    this.ApiServiceService.postPago().subscribe(
+      response => {
+        alert('Carrito pagado correctamente');
+        this.router.navigate([`pago/${idPedido}`]);
+      },
+      error => {
+        console.error('Error al pagar el carrito:', error);
+        alert('Carrito vacío')
+        // Manejar el error de eliminación
+      }
+    );
   }
 
 

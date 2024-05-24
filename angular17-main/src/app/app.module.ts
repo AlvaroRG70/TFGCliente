@@ -25,6 +25,7 @@ import { ReseniasCreateComponent } from './resenias-create/resenias-create.compo
 import { EditarServicioComponent } from './editar-servicio/editar-servicio.component';
 import { EditarReseniaComponent } from './editar-resenia/editar-resenia.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { PagoComponent } from './pago/pago.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CarritoComponent } from './carrito/carrito.component';
     ReseniasCreateComponent,
     EditarServicioComponent,
     EditarReseniaComponent,
-    CarritoComponent
+    CarritoComponent,
+    PagoComponent
   ],
   imports: [
     BrowserModule,
