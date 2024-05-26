@@ -223,6 +223,9 @@ export class ApiServiceService {
     )
   } 
 
+
+  
+
   enviarCorreo(data: any): Observable<any> {
     const headers = this.getHeaders();
     return this.http.post<any>(`http://127.0.0.1:8000/api/v1/send-email`, data, { headers })

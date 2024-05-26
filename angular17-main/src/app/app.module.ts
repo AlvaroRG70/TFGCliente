@@ -19,13 +19,19 @@ import { ListaServiciosComponent } from './lista-servicios/lista-servicios.compo
 import { CrearServicioComponent } from './crear-servicio/crear-servicio.component';
 import { ServicioComponent } from './servicio/servicio.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+
 
 import { ReseniasCreateComponent } from './resenias-create/resenias-create.component';
 import { EditarServicioComponent } from './editar-servicio/editar-servicio.component';
 import { EditarReseniaComponent } from './editar-resenia/editar-resenia.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { PagoComponent } from './pago/pago.component';
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -46,7 +52,12 @@ import { PagoComponent } from './pago/pago.component';
     EditarServicioComponent,
     EditarReseniaComponent,
     CarritoComponent,
-    PagoComponent
+    PagoComponent,
+
+
+
+    FormsModule,          // Agrega esto
+    ReactiveFormsModule,
   ],
   imports: [
     BrowserModule,
@@ -54,10 +65,10 @@ import { PagoComponent } from './pago/pago.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule, // requerido para ToastrModule
-    ToastrModule.forRoot(),
+
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

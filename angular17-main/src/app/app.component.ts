@@ -15,6 +15,7 @@ export class AppComponent {
   NombreUsuario:string = '';
   eltoken:string = '';
 
+
   nombreUser: string="";
   usuario: any
   constructor(private router: Router,private PeliculasService: PeliculasService, private tokenService: TokenService, private ApiServiceService: ApiServiceService, private route: ActivatedRoute) { }
@@ -65,6 +66,9 @@ export class AppComponent {
       });
     });
   }
+
+  
+
 
 //-------------------------
   // ngDoCheck(): void {

@@ -46,28 +46,31 @@ export class RegistroComponent {
             sessionStorage.setItem('token', data.access_token);
             // Almacena el nombre de usuario en sessionStorage
             sessionStorage.setItem('nombreUsuario', this.username);
-            this.router.navigate(['/home']);
+            
             setTimeout(() => {
-              window.location.reload();
+              const dataEmail = {
+                to_email: this.email
+                };
+              this.apiService.enviarCorreo(dataEmail).subscribe(
+                emailResponse => {
+                  console.log('Correo enviado con éxito:', emailResponse);
+                },
+                emailError => {
+                  console.error('Error al enviar el correo:', emailError);
+                }
+                ); 
+                ;
             }, 100);
+            this.router.navigate(['/home'])
             },
-
+            
           loginError => {
             // Error en el inicio de sesión
             console.error('Error al iniciar sesión después del registro:', loginError);
           }
         );
-        const dataEmail = {
-          to_email: this.email
-          };
-        this.apiService.enviarCorreo(dataEmail).subscribe(
-          emailResponse => {
-            console.log('Correo enviado con éxito:', emailResponse);
-          },
-          emailError => {
-            console.error('Error al enviar el correo:', emailError);
-          }
-          );
+        
+
  
       },
       error => {
